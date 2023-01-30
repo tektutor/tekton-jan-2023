@@ -188,6 +188,11 @@ https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operator
 oc get nodes
 ```
 
+### List the nodes in wide mode which shows more details like IP address, etc.,
+```
+oc get nodes -w
+```
+
 ### List the master-1 node using label as a selector
 ```
 oc get nodes -l kubernetes.io/hostname=master-1.ocp.alchemy.com
