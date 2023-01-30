@@ -115,6 +115,54 @@
 https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operators-on-your-laptop-using-red-hat-codeready-containers-and-red-hat-marketplace#step_1__install_codeready_containers
 ```
 
+## Control Plane Components
+- they run only on the master nodes or nodes that has master role
+- Control Plane Components
+  - API Server
+  - etcd database
+  - Scheduler
+  - Controller Managers
+
+### API Server
+- this implements all the Kubernetes/OpenShift functionalities as REST API
+- this stores all the cluster and application status on to the etcd datastore
+- this is the only component that has direct access to etcd database
+
+### etcd database
+- it is an opensource key/value datastore
+- it is not implemented by Kubernetes/OpenShift team, this is an independent opensource project used by Kubernetes/OpenShift
+- it is capable of working as a cluster
+
+### Scheduler
+- this is the component that identifies a healthy node where an application can be deployed
+
+### Controller Managers
+- this is a collection of many Controllers whose primary function is to monitor and heal them when required
+- this is one which supports High Availability to your application deployments
+- There are manay inbuilt controllers
+  - Deployment Controller
+  - ReplicaSet Controller
+  - Node Controller
+  - Endpoint Controller
+
+## What are the Kubernetes Resources
+- Deployment
+- ReplicaSet
+- Pod
+- DaemonSet
+- Job
+- StatefulSet
+- Namespace
+- PersistentVolume
+- PersistentVolumeClaim
+- Service
+- Ingress
+
+## What are the OpenShift Resources
+- Route (Custom Resource added by OpenShift )
+- DeploymentConfig  (Custom Resource added by OpenShift )
+- BuildConfig (Custom Resource added by OpenShift )
+
 ## OpenShift Commands
 
 ### List the OpenShift cluster nodes
