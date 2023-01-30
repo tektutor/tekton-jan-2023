@@ -190,7 +190,7 @@ oc get nodes
 
 ### List the nodes in wide mode which shows more details like IP address, etc.,
 ```
-oc get nodes -w
+oc get nodes -o wide
 ```
 
 ### List the master-1 node using label as a selector
