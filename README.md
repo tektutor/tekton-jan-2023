@@ -122,7 +122,7 @@ https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operator
 oc get nodes
 ```
 
-### List the master-1 node
+### List the master-1 node using label as a selector
 ```
 oc get nodes -l kubernetes.io/hostname=master1.ocp.alchemy.com
 ```
