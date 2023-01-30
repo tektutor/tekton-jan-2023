@@ -97,3 +97,17 @@
   - helps in scaling up/down your application on demand depending user traffic or some application performance metrices
   - support rolling update
      - nothing but helps in upgrading/downgrading your application version from one to other version without any downtime
+  - also helps you create internal only service or external service to expose your application to Internet
+  - helps in using external storage for your applications
+- Examples
+  - Docker SWARM
+  - Google Kubernetes
+    - supports Custom Resource Definitions aka CRDs to add new additional features
+    -  supports Operators to manage your Custom Resource (new features)
+    -  open source
+    -  primarily console based (CLI)
+  - Red Hat OpenShift ( developed on top of Kubernetes )
+    - backed by Red Hat ( an IBM company )
+    - world-wide support can be expected unlike Kubernetes
+    - supports both CLI and Web console
+ 
