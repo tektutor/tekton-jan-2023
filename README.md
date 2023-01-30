@@ -114,3 +114,15 @@
 ```
 https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operators-on-your-laptop-using-red-hat-codeready-containers-and-red-hat-marketplace#step_1__install_codeready_containers
 ```
+
+## OpenShift Commands
+
+### List the OpenShift cluster nodes
+```
+oc get nodes
+```
+
+### List the master-1 node
+```
+oc get nodes -l kubernetes.io/hostname=master1.ocp.alchemy.com
+```
