@@ -192,3 +192,35 @@ oc get nodes
 ```
 oc get nodes -l kubernetes.io/hostname=master-1.ocp.alchemy.com
 ```
+
+### Listing all pods in the default namespace
+```
+oc get pods
+```
+
+### Listing all pods in all the namespaces
+```
+oc get pods --all-namespaces
+```
+
+### Listing all api-servers (control-plane component)
+```
+oc get pods --all-namespaces | grep apiserver*
+```
+
+### Listing all etcd (control-plane component)
+```
+oc get pods --all-namespaces | grep etcd*
+```
+
+### Listing all controller (control-plane component)
+```
+oc get pods --all-namespaces | grep controller*
+```
+
+### Listing all scheduler (control-plane component)
+```
+oc get pods --all-namespaces | grep scheduler*
+```
+
+
