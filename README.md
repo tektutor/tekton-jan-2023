@@ -124,5 +124,5 @@ oc get nodes
 
 ### List the master-1 node using label as a selector
 ```
-oc get nodes -l kubernetes.io/hostname=master1.ocp.alchemy.com
+oc get nodes -l kubernetes.io/hostname=master-1.ocp.alchemy.com
 ```
