@@ -228,4 +228,19 @@ oc get pods --all-namespaces | grep controller*
 oc get pods --all-namespaces | grep scheduler*
 ```
 
+### Getting help info about Deployment resource
+```
+oc explain deployment
+```
+
+### Getting help info about Replicaset resource
+```
+oc explain replicaset
+```
+
+### Getting help info about pod resource
+```
+oc explain pod
+```
+
 
