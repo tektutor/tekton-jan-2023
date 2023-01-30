@@ -163,6 +163,24 @@ https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operator
 - DeploymentConfig  (Custom Resource added by OpenShift )
 - BuildConfig (Custom Resource added by OpenShift )
 
+## What is Deployment?
+- This represents your application deployed within Kubernetes/OpenShift
+- this has name and number of application instances and their status
+- Under a deployment, you also have something called ReplicaSet
+- This resource is managed by Deployment Controller
+
+## What is a ReplicaSet?
+- this manages the application Pods
+- this supports scaling up/down based on user traffic to your applications
+- This resource is managed by ReplicaSet Controller
+
+## What is a Pod?
+- English literal meaning - group of Whales
+- a group of related containers is called a Pod
+- as per recommended best practice, one container per Pod is good
+- technically multiples containers can be part of a single Pod
+- This is also managed by ReplicaSet Controller 
+
 ## OpenShift Commands
 
 ### List the OpenShift cluster nodes
