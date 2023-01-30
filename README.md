@@ -49,7 +49,6 @@
      - how much RAM an application can use
      - how much Disk space an application can use
 
-
 ## What is namespace?
 - Container technology using this namespace isolates one container from another container
 
@@ -111,3 +110,7 @@
     - world-wide support can be expected unlike Kubernetes
     - supports both CLI and Web console
  
+## Installing Code Ready Containers (CRC) on your Windows/Linux/Mac Laptop
+```
+https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operators-on-your-laptop-using-red-hat-codeready-containers-and-red-hat-marketplace#step_1__install_codeready_containers
+```
