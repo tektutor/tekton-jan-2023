@@ -66,7 +66,7 @@ Expected output
 <pre>
 </pre>
 
-## Scale up deployment from 3 pod instance to 6 pod instances
+## Scale up deployment to 6 pod instances
 ```
 oc scale deploy/nginx --replicas=6
 ```
