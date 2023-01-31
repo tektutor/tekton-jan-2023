@@ -109,3 +109,17 @@ deployment.apps/nginx scaled
 NAME                     READY   STATUS    RESTARTS   AGE
 nginx-6d666844f6-prdw8   1/1     Running   0          43m
 </pre>
+
+
+## Deleting a deployment
+```
+oc delete deploy/nginx
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc delete deploy/nginx
+deployment.apps "nginx" deleted
+(jegan@tektutor.org)$ oc get deploy,rs,po
+No resources found in default namespace.
+</pre>
