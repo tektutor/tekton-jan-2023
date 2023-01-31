@@ -123,3 +123,25 @@ deployment.apps "nginx" deleted
 (jegan@tektutor.org)$ oc get deploy,rs,po
 No resources found in default namespace.
 </pre>
+
+
+## ELK vs EFK
+
+ELK Stack
+- Elastic Search ( Time series database that store, retrieves and can be query for application logs )
+- LogStash - converts the logs in a format that Elastic Search database can store
+- Kibana
+
+EFK Stack
+- Elastic Search ( Time series database )
+- Fluentd - - converts the logs in a format that Elastic Search database can store
+- Kibana - Web Dashboard GUI which allows you to query and view logs from a centralized web page conveniently
+
+Both stacks are used for viewing application logs from web dashboard.
+
+Assume, that your microservice container is the main container in the Pod which creates application logs.
+As so many Pods of this microservice might be running within the OpenShift cluster, it is not easy to check logs from a centralized location.
+
+That's there either ELK, EFK or Splunk is used.
+
+In such cases, the Pod will have a side-car(supporting) container along side the main application. The side-car container's main purpose is to collect the logs produced by your main container and push to a centralized location which then will be retrieved and shown in the Kibana Dashboard GUI.
