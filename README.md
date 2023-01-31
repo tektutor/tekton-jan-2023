@@ -4,7 +4,7 @@
 - boot loader utility
   - is a tiny 512 kilo bytes system utility that get installed in Master Boot Record(MBR) in the hard disk
   - when the laptop/desktop is booted, after BIOS Power On Self Test(POST) completes, the BIOS instructs CPU to run the boot loader
-  - the boot loader then scans the hard disk looking for OS, it then gives a menu list the Operating Systems for us to choose
+  - the boot loader then scans the hard disk looking for OS, it then gives a menu, listing the Operating Systems for us to choose
 - in this fashion, only one OS can be active at any point of time, though you may have installed two or more OS in the same
 
 ## Virtualization Technology
