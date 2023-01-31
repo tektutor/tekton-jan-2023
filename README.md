@@ -3,14 +3,15 @@
 ## What is dual/multi booting?
 - boot loader utility
   - is a tiny 512 kilo bytes system utility that get installed in Master Boot Record(MBR) in the hard disk
-- only one OS can be active at any point of time, though you may have installed two or more OS in the same
-  laptop/desktop/server
+  - when the laptop/desktop is booted, after BIOS Power On Self Test(POST) completes, the BIOS instructs CPU to run the boot loader
+  - the boot loader then scans the hard disk looking for OS, it then gives a menu list the Operating Systems for us to choose
+- in this fashion, only one OS can be active at any point of time, though you may have installed two or more OS in the same
 
 ## Virtualization Technology
 - aka Hypervisor
-- consolidates many physical servers into few servers
+- consolidates many physical servers into into a single server
 - software + hardware technology
-- Processors that supports Virtualization
+- Processors that supports Virtualization has a CPU feature set for Virtualization
   AMD 
    - Virtualization Feature is called AMD-V
   Intel
@@ -32,11 +33,11 @@
 
 ## What is Virtual Machine?
 - is a technology that allows running multiples OS on the same desktop/laptop/workstation/server
-- many OS can be active at the same time
-- each Virtual Machine needs to be allocation with dedicated resource hardware, it called a heavy-weight virtualization
+- many OS can be active at the same time unlike the boot loader which allows only one OS active
+- each Virtual Machine needs to be allocated with dedicated hardware resources, hence it is called as a heavy-weight virtualization technology
 
-## What are the factors that controls/decides the max Virtual Machine a server can support?
-- Total CPU Cores
+## What are the factors that controls/decides the maximum Virtual Machines a server can support?
+- Total CPU Cores supported in the Processor(s)
 - RAM
 - Disk Size
 
@@ -53,10 +54,10 @@
 - Container technology using this namespace isolates one container from another container
 
 ## What is a Container?
-- is nothing but normal application process that runs in a separate namespace
+- normal application process that runs in a separate namespace
 - is a sandbox environment which isolates your application using a namespace
 - self-contained services with all dependencies bundled within a container
-- one container represents one application (legacy appliction, it could be REST/SOAP/WebService, Microservice, Server application like DB Server, Web Server or App Server )
+- one container represents one application (legacy application, it could be a REST/SOAP/WebService, Microservice, Server application like DB Server, Web Server or App Server,etc )
 - the application that is containerized will also have all the dependencies of the application
 - is lightweight application virtualization technology
   - containers don't require dedicated hardwares unlike Virtual machines
@@ -64,6 +65,7 @@
 
 ## Container Tools
 - LXC
+- Containerd
 - Docker
 - Podman
 
@@ -79,9 +81,9 @@
   - runC
   - CRI-O
 
-## What is Container Engine?
-- are high-level softwares that uses Container Runtimes under the hood to manage containers
-- similarly they dependend on other tools to manage container images
+## What is a Container Engine?
+- high-level software that uses Container Runtime under the hood to manage containers
+- similarly they depend on other tools to manage container images
 - it's user-friendly tool that provides easy to use command
 - without knowing low-level details we can manage images and container with this tool
 - Examples
@@ -91,12 +93,12 @@
 - manages containerized application (REST/SOAP API, microservices, server application, legacy self-container appliction)
 - benefits of this tool
   - helps in making your applications Highly Available(HA)
-  - support in-built application monitoring features (health-check)
-  - in case your application stops responding or it crashes, it automically starts another instance of your application
-  - helps in scaling up/down your application on demand depending user traffic or some application performance metrices
-  - support rolling update
-     - nothing but helps in upgrading/downgrading your application version from one to other version without any downtime
-  - also helps you create internal only service or external service to expose your application to Internet
+  - supports in-built application monitoring features (health-check, live check)
+  - in case your application stops responding or it crashes, it automatically starts another instance of your application
+  - helps in scaling up/down your application on demand depending user traffic or some application performance metrics
+  - supports rolling update
+     - helps in upgrading/downgrading your application version from one to other version without any downtime
+  - also helps you create internal only service or external service to expose your application over Internet
   - helps in using external storage for your applications
 - Examples
   - Docker SWARM
@@ -105,10 +107,12 @@
     -  supports Operators to manage your Custom Resource (new features)
     -  open source
     -  primarily console based (CLI)
+    -  supports many different types of Container Runtimes that implement CRI(Container Runtime Interface)
   - Red Hat OpenShift ( developed on top of Kubernetes )
     - backed by Red Hat ( an IBM company )
     - world-wide support can be expected unlike Kubernetes
     - supports both CLI and Web console
+    - supports CRI-O container runtime and Podman Container Engine only
  
 ## Installing Code Ready Containers (CRC) on your Windows/Linux/Mac Laptop
 ```
@@ -127,19 +131,20 @@ https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operator
 - this implements all the Kubernetes/OpenShift functionalities as REST API
 - this stores all the cluster and application status on to the etcd datastore
 - this is the only component that has direct access to etcd database
+- API server triggers specific events each time there is an update in the etcd database
 
 ### etcd database
 - it is an opensource key/value datastore
 - it is not implemented by Kubernetes/OpenShift team, this is an independent opensource project used by Kubernetes/OpenShift
-- it is capable of working as a cluster
+- it is capable of working as a cluster, hence when one instance of etcd db is updated, all the other etcd databases within the cluster will be synchronized automatically
 
 ### Scheduler
 - this is the component that identifies a healthy node where an application can be deployed
 
 ### Controller Managers
 - this is a collection of many Controllers whose primary function is to monitor and heal them when required
-- this is one which supports High Availability to your application deployments
-- There are manay inbuilt controllers
+- this is one which make your application deployments High Available(HA)
+- There are many inbuilt controllers
   - Deployment Controller
   - ReplicaSet Controller
   - Node Controller
@@ -157,17 +162,19 @@ https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operator
 - PersistentVolumeClaim
 - Service
 - Ingress
+- EndPoint
 
 ## What are the OpenShift Resources
 - Route (Custom Resource added by OpenShift )
 - DeploymentConfig  (Custom Resource added by OpenShift )
 - BuildConfig (Custom Resource added by OpenShift )
 
-## What is Deployment?
+## What is a Deployment?
 - This represents your application deployed within Kubernetes/OpenShift
-- this has name and number of application instances and their status
+- this has a name and number of application instances and their status
 - Under a deployment, you also have something called ReplicaSet
 - This resource is managed by Deployment Controller
+- Supports rolling update and facilitates scale up/down via ReplicaSet
 
 ## What is a ReplicaSet?
 - this manages the application Pods
@@ -175,18 +182,28 @@ https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operator
 - This resource is managed by ReplicaSet Controller
 
 ## What is a Pod?
-- English literal meaning - group of Whales
+- English literal meaning - group of Whales, Whale is the Docker logo
 - a group of related containers is called a Pod
 - as per recommended best practice, one container per Pod is good
 - technically multiples containers can be part of a single Pod
-- This is also managed by ReplicaSet Controller 
+- Pods are created by kubelet agent that runs in every node based on events received from API Server
+- Scheduler decides where each Pod can be deployed
+- ReplicaSet Controller ensures the desired number of Pods are alive, when it finds less/more than desired Pod it takes action to ensure the desired number of Pods and actual number of Pods instances matches always
 
 ## OpenShift Commands
 
 ### List the OpenShift cluster nodes
+Each node could be a Virtual Machine, an EC2 instance on the Cloud or a Physical Server.  Starting from OpenShift 4.x, Master nodes only supports RedHat Enterprise Core OS while Worker nodes can choose between RedHat Enterprise Core OS or Red Hat Enterprise Linux(RHEL).
+
+Red Hat Enterprise Core OS is a small foot-print Operating System that is optimized for Containerized applications and Container Orchestration Platforms.
+
 ```
 oc get nodes
 ```
+
+
+
+
 
 ### List the nodes in wide mode which shows more details like IP address, etc.,
 ```
@@ -242,4 +259,3 @@ oc explain replicaset
 ```
 oc explain pod
 ```
-
