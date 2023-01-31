@@ -201,9 +201,11 @@ https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operator
 ## OpenShift Commands
 
 ### List the OpenShift cluster nodes
-Each node could be a Virtual Machine, an EC2 instance on the Cloud or a Physical Server.  Starting from OpenShift 4.x, Master nodes only supports RedHat Enterprise Core OS while Worker nodes can choose between RedHat Enterprise Core OS or Red Hat Enterprise Linux(RHEL).
+Each node could be a Virtual Machine, an EC2 instance on the Cloud or a Physical Server.  Starting from OpenShift 4.x, Master nodes only supports RedHat Enterprise Core OS while Worker nodes can choose between RedHat Enterprise Core OS or Red Hat Enterprise Linux(RHEL) as their Operating System.
 
 Red Hat Enterprise Core OS is a small foot-print Operating System that is optimized for Containerized applications and Container Orchestration Platforms.
+
+The interesting benefit of choosing Red Hat Enterprise Core OS is, each version of Core OS comes with a specific version of CRI-O Container Runtime, also upgrading CoreOS and CRI-O version is a matter of issuing a command while RHEL OS doesn't give such an option within OpenShift.
 
 ```
 oc get nodes
