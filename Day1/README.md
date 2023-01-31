@@ -239,6 +239,142 @@ worker-1.ocp.tektutor.org   Ready    worker                        51m   v1.25.4
 worker-2.ocp.tektutor.org   Ready    worker                        51m   v1.25.4+a34b9e9   192.168.122.205   <none>        Red Hat Enterprise Linux CoreOS 412.86.202301191053-0 (Ootpa)   4.18.0-372.40.1.el8_6.x86_64   cri-o://1.25.2-4.rhaos4.12.git66af2f6.el8
 </pre>
 
+### Finding more details about a node
+```
+oc describe node master-1.ocp.tektutor.org
+```
+
+Expected output
+<pre>
+(root@tektutor.org)# oc describe node master-1.ocp.tektutor.org
+Name:               master-1.ocp.tektutor.org
+Roles:              control-plane,master,worker
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=master-1.ocp.tektutor.org
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/control-plane=
+                    node-role.kubernetes.io/master=
+                    node-role.kubernetes.io/worker=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/controlPlaneTopology: HighlyAvailable
+                    machineconfiguration.openshift.io/currentConfig: rendered-master-023bfad24947a1c582da28124144c0aa
+                    machineconfiguration.openshift.io/desiredConfig: rendered-master-023bfad24947a1c582da28124144c0aa
+                    machineconfiguration.openshift.io/desiredDrain: uncordon-rendered-master-023bfad24947a1c582da28124144c0aa
+                    machineconfiguration.openshift.io/lastAppliedDrain: uncordon-rendered-master-023bfad24947a1c582da28124144c0aa
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Tue, 31 Jan 2023 08:10:33 +0530
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  master-1.ocp.tektutor.org
+  AcquireTime:     <unset>
+  RenewTime:       Tue, 31 Jan 2023 09:49:31 +0530
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Tue, 31 Jan 2023 09:48:29 +0530   Tue, 31 Jan 2023 08:10:33 +0530   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Tue, 31 Jan 2023 09:48:29 +0530   Tue, 31 Jan 2023 08:10:33 +0530   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Tue, 31 Jan 2023 09:48:29 +0530   Tue, 31 Jan 2023 08:10:33 +0530   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Tue, 31 Jan 2023 09:48:29 +0530   Tue, 31 Jan 2023 08:14:26 +0530   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:  192.168.122.46
+  Hostname:    master-1.ocp.tektutor.org
+Capacity:
+  cpu:                8
+  ephemeral-storage:  104322028Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             64399804Ki
+  pods:               250
+Allocatable:
+  cpu:                7500m
+  ephemeral-storage:  95069439022
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             63248828Ki
+  pods:               250
+System Info:
+  Machine ID:                             f67a342e352541cc8dee96a1a711c536
+  System UUID:                            f67a342e-3525-41cc-8dee-96a1a711c536
+  Boot ID:                                17f59851-5b3f-483b-b70f-306193fe0493
+  Kernel Version:                         4.18.0-372.40.1.el8_6.x86_64
+  OS Image:                               Red Hat Enterprise Linux CoreOS 412.86.202301191053-0 (Ootpa)
+  Operating System:                       linux
+  Architecture:                           amd64
+  Container Runtime Version:              cri-o://1.25.2-4.rhaos4.12.git66af2f6.el8
+  Kubelet Version:                        v1.25.4+a34b9e9
+  Kube-Proxy Version:                     v1.25.4+a34b9e9
+Non-terminated Pods:                      (37 in total)
+  Namespace                               Name                                                        CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                               ----                                                        ------------  ----------  ---------------  -------------  ---
+  openshift-apiserver                     apiserver-589d6c8477-b7qbj                                  110m (1%)     0 (0%)      250Mi (0%)       0 (0%)         76m
+  openshift-authentication                oauth-openshift-55b9bcb7c5-7zqrw                            10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         78m
+  openshift-cluster-node-tuning-operator  tuned-gdjn5                                                 10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         91m
+  openshift-cluster-storage-operator      csi-snapshot-controller-6587df558d-tlxdd                    10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         94m
+  openshift-cluster-storage-operator      csi-snapshot-webhook-8688766d4c-ghkh4                       10m (0%)      0 (0%)      20Mi (0%)        0 (0%)         94m
+  openshift-console                       console-7c8df7b96d-sbxvz                                    10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         74m
+  openshift-controller-manager            controller-manager-5444885554-kcxl6                         100m (1%)     0 (0%)      100Mi (0%)       0 (0%)         75m
+  openshift-dns                           dns-default-c96vm                                           60m (0%)      0 (0%)      110Mi (0%)       0 (0%)         92m
+  openshift-dns                           node-resolver-skc98                                         5m (0%)       0 (0%)      21Mi (0%)        0 (0%)         92m
+  openshift-etcd                          etcd-guard-master-1.ocp.tektutor.org                        10m (0%)      0 (0%)      5Mi (0%)         0 (0%)         92m
+  openshift-etcd                          etcd-master-1.ocp.tektutor.org                              360m (4%)     0 (0%)      910Mi (1%)       0 (0%)         69m
+  openshift-image-registry                node-ca-rl4fc                                               10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         77m
+  openshift-ingress-canary                ingress-canary-fptwg                                        10m (0%)      0 (0%)      20Mi (0%)        0 (0%)         83m
+  openshift-ingress                       router-default-654bbc5f99-ldqg7                             100m (1%)     0 (0%)      256Mi (0%)       0 (0%)         78m
+  openshift-kube-apiserver                kube-apiserver-guard-master-1.ocp.tektutor.org              10m (0%)      0 (0%)      5Mi (0%)         0 (0%)         81m
+  openshift-kube-apiserver                kube-apiserver-master-1.ocp.tektutor.org                    290m (3%)     0 (0%)      1224Mi (1%)      0 (0%)         71m
+  openshift-kube-controller-manager       kube-controller-manager-guard-master-1.ocp.tektutor.org     10m (0%)      0 (0%)      5Mi (0%)         0 (0%)         91m
+  openshift-kube-controller-manager       kube-controller-manager-master-1.ocp.tektutor.org           80m (1%)      0 (0%)      500Mi (0%)       0 (0%)         70m
+  openshift-kube-scheduler                openshift-kube-scheduler-guard-master-1.ocp.tektutor.org    10m (0%)      0 (0%)      5Mi (0%)         0 (0%)         92m
+  openshift-kube-scheduler                openshift-kube-scheduler-master-1.ocp.tektutor.org          25m (0%)      0 (0%)      150Mi (0%)       0 (0%)         75m
+  openshift-machine-config-operator       machine-config-daemon-nzn45                                 40m (0%)      0 (0%)      100Mi (0%)       0 (0%)         95m
+  openshift-machine-config-operator       machine-config-server-frkk7                                 20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         92m
+  openshift-monitoring                    alertmanager-main-1                                         9m (0%)       0 (0%)      120Mi (0%)       0 (0%)         75m
+  openshift-monitoring                    node-exporter-rbqth                                         9m (0%)       0 (0%)      47Mi (0%)        0 (0%)         91m
+  openshift-monitoring                    prometheus-adapter-74df4d49f8-m4ww6                         1m (0%)       0 (0%)      40Mi (0%)        0 (0%)         81m
+  openshift-monitoring                    prometheus-k8s-1                                            75m (1%)      0 (0%)      1104Mi (1%)      0 (0%)         75m
+  openshift-monitoring                    thanos-querier-c6fb58486-ht6cb                              15m (0%)      0 (0%)      92Mi (0%)        0 (0%)         75m
+  openshift-multus                        multus-additional-cni-plugins-rjgj6                         10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         96m
+  openshift-multus                        multus-admission-controller-586dbf8dfd-7nf25                20m (0%)      0 (0%)      70Mi (0%)        0 (0%)         83m
+  openshift-multus                        multus-qd2cp                                                10m (0%)      0 (0%)      65Mi (0%)        0 (0%)         96m
+  openshift-multus                        network-metrics-daemon-4rw7d                                20m (0%)      0 (0%)      120Mi (0%)       0 (0%)         96m
+  openshift-network-diagnostics           network-check-target-7zlxs                                  10m (0%)      0 (0%)      15Mi (0%)        0 (0%)         96m
+  openshift-oauth-apiserver               apiserver-777bc4968c-5mxwb                                  150m (2%)     0 (0%)      200Mi (0%)       0 (0%)         76m
+  openshift-route-controller-manager      route-controller-manager-58fb9bd544-62b86                   100m (1%)     0 (0%)      100Mi (0%)       0 (0%)         75m
+  openshift-sdn                           sdn-controller-bv4m8                                        20m (0%)      0 (0%)      70Mi (0%)        0 (0%)         96m
+  openshift-sdn                           sdn-rrcdc                                                   110m (1%)     0 (0%)      220Mi (0%)       0 (0%)         96m
+  openshift-service-ca                    service-ca-5d96446959-v4bmr                                 10m (0%)      0 (0%)      120Mi (0%)       0 (0%)         94m
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                1869m (24%)   0 (0%)
+  memory             6384Mi (10%)  0 (0%)
+  ephemeral-storage  0 (0%)        0 (0%)
+  hugepages-1Gi      0 (0%)        0 (0%)
+  hugepages-2Mi      0 (0%)        0 (0%)
+Events:
+  Type    Reason                     Age                From                 Message
+  ----    ------                     ----               ----                 -------
+  Normal  NodeHasNoDiskPressure      99m (x8 over 99m)  kubelet              Node master-1.ocp.tektutor.org status is now: NodeHasNoDiskPressure
+  Normal  NodeHasSufficientMemory    99m (x8 over 99m)  kubelet              Node master-1.ocp.tektutor.org status is now: NodeHasSufficientMemory
+  Normal  RegisteredNode             99m                node-controller      Node master-1.ocp.tektutor.org event: Registered Node master-1.ocp.tektutor.org in Controller
+  Normal  RegisteredNode             97m                node-controller      Node master-1.ocp.tektutor.org event: Registered Node master-1.ocp.tektutor.org in Controller
+  Normal  NodeDone                   91m                machineconfigdaemon  Setting node master-1.ocp.tektutor.org, currentConfig rendered-master-023bfad24947a1c582da28124144c0aa to Done
+  Normal  ConfigDriftMonitorStarted  91m                machineconfigdaemon  Config Drift Monitor started, watching against rendered-master-023bfad24947a1c582da28124144c0aa
+  Normal  Uncordon                   91m                machineconfigdaemon  Update completed for config rendered-master-023bfad24947a1c582da28124144c0aa and node has been uncordoned
+  Normal  RegisteredNode             86m                node-controller      Node master-1.ocp.tektutor.org event: Registered Node master-1.ocp.tektutor.org in Controller
+  Normal  RegisteredNode             79m                node-controller      Node master-1.ocp.tektutor.org event: Registered Node master-1.ocp.tektutor.org in Controller
+  Normal  RegisteredNode             78m                node-controller      Node master-1.ocp.tektutor.org event: Registered Node master-1.ocp.tektutor.org in Controller
+  Normal  RegisteredNode             76m                node-controller      Node master-1.ocp.tektutor.org event: Registered Node master-1.ocp.tektutor.org in Controller
+  Normal  RegisteredNode             74m                node-controller      Node master-1.ocp.tektutor.org event: Registered Node master-1.ocp.tektutor.org in Controller
+  Normal  RegisteredNode             71m                node-controller      Node master-1.ocp.tektutor.org event: Registered Node master-1.ocp.tektutor.org in Controller
+</pre>
+
 ### List the master-1 node using label as a selector
 ```
 oc get nodes -l kubernetes.io/hostname=master-1.ocp.alchemy.com
