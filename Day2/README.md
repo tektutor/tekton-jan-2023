@@ -95,3 +95,17 @@ nginx-6d666844f6-lx8fs   1/1     Running   0          29s
 nginx-6d666844f6-nrnp4   1/1     Running   0          29s
 nginx-6d666844f6-prdw8   1/1     Running   0          41m
 </pre>
+
+## Scale down deployment to 1 pod instance
+```
+oc scale deploy nginx --replicas=1
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc scale deploy/nginx --replicas=1
+deployment.apps/nginx scaled
+(jegan@tektutor.org)$ oc get po -w
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-6d666844f6-prdw8   1/1     Running   0          43m
+</pre>
