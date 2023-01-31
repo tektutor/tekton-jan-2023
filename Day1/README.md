@@ -190,6 +190,14 @@ https://developers.redhat.com/blog/2020/09/09/install-red-hat-openshift-operator
 - Scheduler decides where each Pod can be deployed
 - ReplicaSet Controller ensures the desired number of Pods are alive, when it finds less/more than desired Pod it takes action to ensure the desired number of Pods and actual number of Pods instances matches always
 
+## Kubernetes Architecture
+![Kubernetes Architecture](K8sArchitecture.png)
+
+## OpenShift Architecture
+![OpenShift Master Node](master-node.png)
+
+![OpenShift Architecture](OpenShiftArchitecture.png)
+
 ## OpenShift Commands
 
 ### List the OpenShift cluster nodes
