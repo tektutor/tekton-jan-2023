@@ -211,14 +211,33 @@ The interesting benefit of choosing Red Hat Enterprise Core OS is, each version 
 oc get nodes
 ```
 
-
-
+Expected output
+<pre>
+(root@tektutor.org)# oc get nodes
+NAME                        STATUS   ROLES                         AGE   VERSION
+master-1.ocp.tektutor.org   Ready    control-plane,master,worker   91m   v1.25.4+a34b9e9
+master-2.ocp.tektutor.org   Ready    control-plane,master,worker   91m   v1.25.4+a34b9e9
+master-3.ocp.tektutor.org   Ready    control-plane,master,worker   91m   v1.25.4+a34b9e9
+worker-1.ocp.tektutor.org   Ready    worker                        51m   v1.25.4+a34b9e9
+worker-2.ocp.tektutor.org   Ready    worker                        50m   v1.25.4+a34b9e9
+</pre>
 
 
 ### List the nodes in wide mode which shows more details like IP address, etc.,
 ```
 oc get nodes -o wide
 ```
+
+Expected output
+<pre>
+(root@tektutor.org)# oc get nodes -o wide
+NAME                        STATUS   ROLES                         AGE   VERSION           INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                                        KERNEL-VERSION                 CONTAINER-RUNTIME
+master-1.ocp.tektutor.org   Ready    control-plane,master,worker   92m   v1.25.4+a34b9e9   192.168.122.46    <none>        Red Hat Enterprise Linux CoreOS 412.86.202301191053-0 (Ootpa)   4.18.0-372.40.1.el8_6.x86_64   cri-o://1.25.2-4.rhaos4.12.git66af2f6.el8
+master-2.ocp.tektutor.org   Ready    control-plane,master,worker   92m   v1.25.4+a34b9e9   192.168.122.145   <none>        Red Hat Enterprise Linux CoreOS 412.86.202301191053-0 (Ootpa)   4.18.0-372.40.1.el8_6.x86_64   cri-o://1.25.2-4.rhaos4.12.git66af2f6.el8
+master-3.ocp.tektutor.org   Ready    control-plane,master,worker   91m   v1.25.4+a34b9e9   192.168.122.196   <none>        Red Hat Enterprise Linux CoreOS 412.86.202301191053-0 (Ootpa)   4.18.0-372.40.1.el8_6.x86_64   cri-o://1.25.2-4.rhaos4.12.git66af2f6.el8
+worker-1.ocp.tektutor.org   Ready    worker                        51m   v1.25.4+a34b9e9   192.168.122.77    <none>        Red Hat Enterprise Linux CoreOS 412.86.202301191053-0 (Ootpa)   4.18.0-372.40.1.el8_6.x86_64   cri-o://1.25.2-4.rhaos4.12.git66af2f6.el8
+worker-2.ocp.tektutor.org   Ready    worker                        51m   v1.25.4+a34b9e9   192.168.122.205   <none>        Red Hat Enterprise Linux CoreOS 412.86.202301191053-0 (Ootpa)   4.18.0-372.40.1.el8_6.x86_64   cri-o://1.25.2-4.rhaos4.12.git66af2f6.el8
+</pre>
 
 ### List the master-1 node using label as a selector
 ```
