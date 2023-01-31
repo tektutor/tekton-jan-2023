@@ -243,4 +243,3 @@ oc explain replicaset
 oc explain pod
 ```
 
-
