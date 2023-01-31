@@ -54,3 +54,44 @@ nginx-6d666844f6   1         1         1       5m36s
 NAME               DESIRED   CURRENT   READY   AGE
 nginx-6d666844f6   1         1         1       5m38s
 </pre>
+
+## Lab - Listing the pods
+```
+oc get pods
+oc get pod
+oc get po
+```
+
+Expected output
+<pre>
+</pre>
+
+## Scale up deployment from 3 pod instance to 6 pod instances
+```
+oc scale deploy/nginx --replicas=6
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc scale deploy/nginx --replicas=6
+deployment.apps/nginx scaled
+(jegan@tektutor.org)$ oc get po -w
+NAME                     READY   STATUS              RESTARTS   AGE
+nginx-6d666844f6-6cs5r   1/1     Running             0          40m
+nginx-6d666844f6-7wwn4   1/1     Running             0          40m
+nginx-6d666844f6-jhh57   0/1     ContainerCreating   0          2s
+nginx-6d666844f6-lx8fs   0/1     ContainerCreating   0          2s
+nginx-6d666844f6-nrnp4   0/1     ContainerCreating   0          2s
+nginx-6d666844f6-prdw8   1/1     Running             0          40m
+nginx-6d666844f6-jhh57   1/1     Running             0          8s
+nginx-6d666844f6-nrnp4   1/1     Running             0          19s
+nginx-6d666844f6-lx8fs   1/1     Running             0          24s
+^C(jegan@tektutor.org)$ oc get po 
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-6d666844f6-6cs5r   1/1     Running   0          41m
+nginx-6d666844f6-7wwn4   1/1     Running   0          41m
+nginx-6d666844f6-jhh57   1/1     Running   0          29s
+nginx-6d666844f6-lx8fs   1/1     Running   0          29s
+nginx-6d666844f6-nrnp4   1/1     Running   0          29s
+nginx-6d666844f6-prdw8   1/1     Running   0          41m
+</pre>
