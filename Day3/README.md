@@ -85,3 +85,8 @@ Expected output
 (jegan@tektutor.org)$ oc delete svc/nginx
 service "nginx" deleted
 </pre>
+
+## Lab - Installing Metal LB Operator in OpenShift to enable LoadBalancer Service in bare-metal OpenShift cluster
+```
+https://medium.com/tektutor/using-metallb-loadbalancer-with-bare-metal-openshift-onprem-4230944bfa35
+```
