@@ -26,3 +26,9 @@ Now using project "jegan" on server "https://api.ocp.tektutor.org:6443".
 Using project "jegan" on server "https://api.ocp.tektutor.org:6443".
 </pre>
 
+## What is a Service in Kubernetes/OpenShift?
+- is a way to expose your applications 
+- is of two types
+  1. Internal Service ( ClusterIP - accessible only within the OpenShift cluster )
+  2. External Service ( NodePort and LoadBlanacer Service accessible outside the cluster )
+- represents a group of Load Balanced Pods
