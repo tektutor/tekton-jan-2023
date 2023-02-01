@@ -74,3 +74,14 @@ Events:            <none>
 NAME    ENDPOINTS                                             AGE
 nginx   10.128.0.99:8080,10.128.2.22:8080,10.131.0.129:8080   104s
 </pre>
+
+## Lab - Delete the clusterIP Service
+```
+oc delete svc/nginx
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc delete svc/nginx
+service "nginx" deleted
+</pre>
