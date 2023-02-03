@@ -1,6 +1,6 @@
 # Day 5
 
-## Installing NFS Server for External Persistent Storage
+## Installing NFS Server for External Persistent Storage in Ubuntu
 ```
 sudo apt update
 sudo apt install -y nfs-kernel-server
@@ -29,10 +29,12 @@ no_root_squash - By default, NFS translates requests from a root user remotely i
 
 ## Installing NFS Server in CentOS 7.x
 ```
-sudo yum install -y nfs-utils
+su -
+yum install -y nfs-utils
 systemctl start nfs-server.service
 systemctl enable nfs-server.service
 systemctl status nfs-server.service
+
 mkdir  -p /var/nfs_shares/user1
 mkdir  -p /var/nfs_shares/user2
 mkdir  -p /var/nfs_shares/user3
@@ -41,9 +43,28 @@ mkdir  -p /var/nfs_shares/user5
 mkdir  -p /var/nfs_shares/user6
 mkdir  -p /var/nfs_shares/user7
 
+chown -R nobody:nobody /var/nfs_shares
+chmod -R 777 /var/nfs_shares
+
 ls -l /var/nfs_shares/
 ```
 
+Create a file vim /etc/exports with the below content
+<pre>
+/var/nfs_shares/user1  192.168.122.0/24(rw,sync,no_subtree_check)
+/var/nfs_shares/user2  192.168.122.0/24(rw,sync,no_subtree_check)
+/var/nfs_shares/user3  192.168.122.0/24(rw,sync,no_subtree_check)
+/var/nfs_shares/user4  192.168.122.0/24(rw,sync,no_subtree_check)
+/var/nfs_shares/user5  192.168.122.0/24(rw,sync,no_subtree_check)
+/var/nfs_shares/user6  192.168.122.0/24(rw,sync,no_subtree_check)
+/var/nfs_shares/user6  192.168.122.0/24(rw,sync,no_subtree_check)
+</pre>
+
+Restart the nfs server
+```
+su -
+systemctl restart nfs-server
+```
 
 ## Installing Operator SDK
 # What is Kubernetes Operators?
