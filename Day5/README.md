@@ -74,6 +74,21 @@ firewall-cmd --reload
 showmount -e localhost
 ```
 
+## Lab - Deployming mysql db server that uses an external Persistent Volume
+
+### What is Persistent Volume (PV)?
+- OpenShift Administrators can manually create Disk Volumes of different size and types
+- In case, your OpenShift cluster has Storage Class created by OpenShift Administrators then the Persistent Volume will be created automatically by the OpenShift and then it lets your application use the Persistent Volume (PV)
+
+### What is Persistent Volume Claim (PVC)?
+- this is how your application can request for external storage in Kubernetes/OpenShift
+- should mention
+  - What type of storage it requires
+  - How much disk space ?
+  - Optionally, can also mention, what is the storage class ( NFS, AWS S3, EBS, etc., )
+  - Optionally, Persistent Volume that has some specific Labels
+
+
 ## Installing Operator SDK
 # What is Kubernetes Operators?
 - is a way to extend a Kubernetes/OpenShift API
@@ -589,3 +604,5 @@ oc get deploy -n nginx-operator-system
 Expected output is
 <pre>
 </pre>
+
+
