@@ -75,16 +75,6 @@ showmount -e localhost
 ```
 
 ## Lab - Deployming mysql db server that uses an external Persistent Volume
-```
-cd ~/tekton-jan-2023
-git pull
-
-cd Day5/persistent-storage-and-claims/
-
-oc create -f mysql-pvc.yml --save-config
-oc create -f mysql-pv.yml --save-config
-oc create -f mysql-deploy.yml --save-config
-```
 
 ### What is Persistent Volume (PV)?
 - OpenShift Administrators can manually create Disk Volumes of different size and types
@@ -98,6 +88,17 @@ oc create -f mysql-deploy.yml --save-config
   - Optionally, can also mention, what is the storage class ( NFS, AWS S3, EBS, etc., )
   - Optionally, Persistent Volume that has some specific Labels
 
+You may try the lab exercise now ...
+```
+cd ~/tekton-jan-2023
+git pull
+
+cd Day5/persistent-storage-and-claims/
+
+oc create -f mysql-pvc.yml --save-config
+oc create -f mysql-pv.yml --save-config
+oc create -f mysql-deploy.yml --save-config
+```
 
 ## Installing Operator SDK
 # What is Kubernetes Operators?
