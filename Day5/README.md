@@ -63,7 +63,15 @@ Create a file vim /etc/exports with the below content
 Restart the nfs server
 ```
 su -
+
 systemctl restart nfs-server
+exportfs -arv
+exportfs  -s
+firewall-cmd --permanent --add-service=nfs
+firewall-cmd --permanent --add-service=rpc-bind
+firewall-cmd --permanent --add-service=mountd
+firewall-cmd --reload 
+showmount -e localhost
 ```
 
 ## Installing Operator SDK
