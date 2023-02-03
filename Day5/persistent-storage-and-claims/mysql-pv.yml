@@ -4,7 +4,7 @@ metadata:
   name: mysql-pv
   labels:
     type: mysql
-    name: jegan
+    name: jegan #Replace with your name
 spec:
   capacity:
     storage: 500Mi
@@ -13,4 +13,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: "192.168.1.108"
-    path: "/mnt/mysql"
+    path: "/mnt/mysql" #Replace this folder with your username For example - /mnt/user1 
