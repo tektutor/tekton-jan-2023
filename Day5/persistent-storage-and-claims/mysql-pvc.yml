@@ -4,12 +4,12 @@ metadata:
   name: mysql-pvc
   labels:
     type: mysql
-    name: jegan
+    name: jegan  #Replace this with your name
 spec:
   selector:
     matchLabels:
       type: mysql
-      name: jegan
+      name: jegan  #Replace this with your name
   accessModes:
   - ReadWriteMany
   resources:
