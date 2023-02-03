@@ -27,6 +27,23 @@ no_root_squash - By default, NFS translates requests from a root user remotely i
 /var/nfs_shared_folders/mysql      192.168.122.0/24(rw,sync,no_subtree_check)
 ```
 
+## Installing NFS Server in CentOS 7.x
+```
+sudo yum install -y nfs-utils
+systemctl start nfs-server.service
+systemctl enable nfs-server.service
+systemctl status nfs-server.service
+mkdir  -p /var/nfs_shares/user1
+mkdir  -p /var/nfs_shares/user2
+mkdir  -p /var/nfs_shares/user3
+mkdir  -p /var/nfs_shares/user4
+mkdir  -p /var/nfs_shares/user5
+mkdir  -p /var/nfs_shares/user6
+mkdir  -p /var/nfs_shares/user7
+
+ls -l /var/nfs_shares/
+```
+
 
 ## Installing Operator SDK
 # What is Kubernetes Operators?
