@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: nfs-storage
           persistentVolumeClaim:
-            claimName: mysql-pvc
+            claimName: mysql-pvc # Append your name like mysql-pvc-jegan
       containers:
         - name: mysql
           image: 'bitnami/mariadb:latest'
