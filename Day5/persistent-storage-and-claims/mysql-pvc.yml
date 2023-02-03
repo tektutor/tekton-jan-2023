@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pvc
+  name: mysql-pvc # Append your name like mysql-pvc-jegan
   labels:
     type: mysql
     name: jegan  #Replace this with your name
