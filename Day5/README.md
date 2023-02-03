@@ -75,6 +75,16 @@ showmount -e localhost
 ```
 
 ## Lab - Deployming mysql db server that uses an external Persistent Volume
+```
+cd ~/tekton-jan-2023
+git pull
+
+cd Day5/persistent-storage-and-claims/
+
+oc create -f mysql-pvc.yml --save-config
+oc create -f mysql-pv.yml --save-config
+oc create -f mysql-deploy.yml --save-config
+```
 
 ### What is Persistent Volume (PV)?
 - OpenShift Administrators can manually create Disk Volumes of different size and types
