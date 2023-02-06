@@ -13,6 +13,27 @@
 - the data (key/value) stored inside secrets are encrypted and will be invisible
 - but Kubernetes/OpenShift application will be able to securely access then and use it
 
+
+## Lab - Demonstrates ConfigMaps use
+```
+cd ~/tekton-jan-2023
+git pull
+
+cd Day6/configmap
+oc apply -f configmap.yml
+oc apply -f pod.yml
+```
+
+## Lab - Demonstrates Secrets ue
+```
+cd ~/tekton-jan-2023
+git pull
+
+cd Day6/secrets
+oc apply -f secrets.yml
+oc apply -f pod.yml
+```
+
 ## Installing Operator SDK
 # What is Kubernetes Operators?
 - is a way to extend a Kubernetes/OpenShift API
