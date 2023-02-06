@@ -30,6 +30,7 @@ oc get configmaps
 oc get configmap
 oc get cm
 oc describe cm/my-configmap
+oc logs pod-using-configmaps
 ```
 
 ## Lab - Demonstrates how to use Secrets to store and retrieve sensitive data like login credentials
@@ -47,6 +48,7 @@ Listing the secrets and viewing the opaque data stored in configmaps
 oc get secrets
 oc get secret
 oc describe secret/mysql-login-credentials
+oc logs pod-using-secrets
 ```
 
 ## Installing Operator SDK
