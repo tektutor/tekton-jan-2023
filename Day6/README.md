@@ -322,6 +322,7 @@ pip install ansible-runner-http
 
 ## Installing OpenShift python client
 ```
+pip install openshift
 ```
 
 Expected output is
