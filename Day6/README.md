@@ -14,7 +14,7 @@
 - but Kubernetes/OpenShift application will be able to securely access then and use it
 
 
-## Lab - Demonstrates ConfigMaps use
+## Lab - Demonstrates how to use ConfigMaps to store and retrieve application config info
 ```
 cd ~/tekton-jan-2023
 git pull
@@ -24,7 +24,7 @@ oc apply -f configmap.yml
 oc apply -f pod.yml
 ```
 
-## Lab - Demonstrates Secrets ue
+## Lab - Demonstrates how to use Secrets to store and retrieve sensitive data like login credentials
 ```
 cd ~/tekton-jan-2023
 git pull
