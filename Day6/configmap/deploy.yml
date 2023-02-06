@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      restartPolicy: Always 
+      containers:
+      - image: ubuntu:16.04 
+        command: ['/bin/sh', '-c', 'while true; do echo Hello, sleep 5; done' ]
+        name: ubuntu 

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: my-pod
+spec:
+  containers:
+    - name:  busybox 
+      image: registry.k8s.io/busybox 
+      command: ["/bin/sh", "-c", "env" ]
+      env:
+      - name: JDK_HOME 
+        valueFrom:
+          configMapKeyRef:
+            name: my-configmap 
+            key: java_home
+
+      - name: APP_LOGS_PATH
+        valueFrom:
+          configMapKeyRef:
+             name: my-configmap
+             key: app_path
+
+      - name: MAVEN_HOME
+        valueFrom:
+          configMapKeyRef:
+             name: my-configmap
+             key: m2_home
