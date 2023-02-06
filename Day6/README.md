@@ -99,7 +99,7 @@ pwd
 
 Maksure the go folder path is exported in your ~/.bashrc file as shown below at the at the end of the file
 ```
-export PATH=/home/jegan/operator-sdk/go/bin:$PATH
+export PATH=/home/jegan/go/bin:$PATH
 ```
 
 Apply the changes made in .bashrc
