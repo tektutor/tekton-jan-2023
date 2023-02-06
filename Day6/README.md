@@ -200,6 +200,7 @@ OS/Arch:      linux/amd64
 ## Install Ansible in CentOS 7.x
 Make sure you first upgrade your pip
 ```
+yum install -y python3
 python3 -m pip install --upgrade pip
 ```
 
