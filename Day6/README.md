@@ -92,6 +92,8 @@ https://docs.openshift.com/container-platform/4.10/operators/operator_sdk/ansibl
 
 This url has Go version specific binaries https://go.dev/dl
 ```
+su -
+
 wget https://go.dev/dl/go1.18.2.linux-amd64.tar.gz
 tar xvfz go1.18.2.linux-amd64.tar.gz
 pwd
@@ -99,7 +101,7 @@ pwd
 
 Maksure the go folder path is exported in your ~/.bashrc file as shown below at the at the end of the file
 ```
-export PATH=/home/jegan/go/bin:$PATH
+export PATH=/root/go/bin:$PATH
 ```
 
 Apply the changes made in .bashrc
@@ -127,7 +129,7 @@ wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/operator-sdk/4
 
 tar xvf operator-sdk-v1.16.0-ocp-linux-x86_64.tar.gz
 
-sudo mv ./operator-sdk /usr/local/bin/operator-sdk
+mv ./operator-sdk /usr/local/bin/operator-sdk
 ```
 
 Let's us verify the version of operator sdk
