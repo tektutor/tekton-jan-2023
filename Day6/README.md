@@ -34,6 +34,15 @@ oc logs pod-using-configmaps
 ```
 
 ## ⛹️‍♂️ Lab - Demonstrates how to use Secrets to store and retrieve sensitive data like login credentials
+
+The data that is stored under data section must be a base64 encoded string.
+For example
+```
+echo -n admin|base64
+echo -n Admin@123|base64
+```
+
+You may now update your credentials with base64 encoded strings in the secrets.yml.
 ```
 cd ~/tekton-jan-2023
 git pull
