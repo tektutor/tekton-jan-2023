@@ -1,5 +1,18 @@
 # Day 6
 
+## What is ConfigMaps?
+- key/value pair
+- supported by Kubernetes, hence also works in OpenShift
+- can be used to store your application configuration information
+- typically, only non-sensitive data like application logs path, your application logo path, some environment settings, etc
+
+## What is Secrets?
+- key/value pair
+- supported by Kubernetes, hence also works in OpenShift
+- can be used to store login credentials or any other sensitive information
+- the data (key/value) stored inside secrets are encrypted and will be invisible
+- but Kubernetes/OpenShift application will be able to securely access then and use it
+
 ## Installing Operator SDK
 # What is Kubernetes Operators?
 - is a way to extend a Kubernetes/OpenShift API
