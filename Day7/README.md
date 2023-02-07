@@ -264,7 +264,7 @@ cd ~/tekton-jan-2023
 git pull
 cd Day7/tekton
 
-oc apply -f hello.yml 
+oc apply -f hello-task.yml 
 oc get tasks
 tkn task list
 
