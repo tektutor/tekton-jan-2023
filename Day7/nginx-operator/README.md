@@ -168,3 +168,8 @@ You can issue the below command to observe that our custom nginx-controller auto
 oc get deploy -w
 oc get rs,po
 ```
+
+## What is Tekton?
+- serverless CI/CD Platform
+- you can created CI/CD Pipeline with declarative code written in YAML
+- is a Kubernetes native CI/CF Framework, hence works in Kubernetes and OpenShift
