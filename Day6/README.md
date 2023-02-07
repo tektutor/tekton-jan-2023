@@ -173,30 +173,6 @@ Docker version 20.10.7, build 20.10.7-0ubuntu5~18.04.3
 REPOSITORY                                           TAG                           IMAGE ID       CREATED        SIZE
 </pre>
 
-## Install podman
-
-You may check the official documentation here https://podman.io/getting-started/installation
-
-```
-sudo yum install -y epel-release
-sudo yum -y install podman
-```
-
-Check the version of podman
-```
-podman version
-```
-
-The expected output is
-<pre>
-(jegan@tektutor.org)$ <b>podman version</b>
-Version:      3.0.1
-API Version:  3.0.0
-Go Version:   go1.15.2
-Built:        Thu Jan  1 05:30:00 1970
-OS/Arch:      linux/amd64
-</pre>
-
 ## Install Ansible in CentOS 7.x
 Make sure you first upgrade your pip
 ```
@@ -458,7 +434,7 @@ Edit the /roles/nginx/tasks/main.yml and add the below coe
 Append the below line in roles/nginx/defaults/main.yml
 
 ```
-size: 3
+size: 1
 ```
 
 ## Let's run the operator on your local system as a Go program ( This is to perform developer test -hence you can ignore )
@@ -573,12 +549,12 @@ Now, let's create a nginx.yml file with below content
 <pre>
 Create an yaml file named nginx.yml with below content
 <pre>
-apiVersion: tektutor.org/v1
+apiVersion: training.tektutor.org/v1
 kind: Nginx
 metadata:
-  name: nginx
+  name: nginx-sample
 spec:
-  size: 3
+  size: 5 
 </pre>
 
 
