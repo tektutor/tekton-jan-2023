@@ -324,3 +324,36 @@ tkn taskrun logs hello-task-with-multiple-steps-run-qjcl2 -f -n jegan
 
 [step-3] Step 3 => Hello World !
 </pre>
+
+
+## Lab - Tekton Task with multiple steps
+```
+cd ~/tekton-jan-2023
+git pull
+cd Day7/tekton
+
+oc apply -f task-that-accepts-params.yml
+oc get tasks
+tkn task list
+tkn task start hello-task-with-multiple-steps
+```
+
+Expected output
+<pre>
+n order to track the TaskRun progress run:
+tkn taskrun logs hello-task-with-params-run-2ggqv -f -n jegan
+(jegan@tektutor.org)$ tkn taskrun logs hello-task-with-params-run-2ggqv -f -n jegan
+[echo] Hello Task with Params
+
+(jegan@tektutor.org)$ oc get po
+NAME                                           READY   STATUS      RESTARTS   AGE
+hello-run-g9fcb-pod                            0/1     Completed   0          68m
+hello-task-with-multiple-steps-run-qjcl2-pod   0/3     Completed   0          18m
+hello-task-with-params-run-2ggqv-pod           0/1     Completed   0          16s
+hello-task-with-params-run-szvfj-pod           0/1     Completed   0          53s
+nginx-sample-nginx-6986d4c448-4m7hj            1/1     Running     0          3h
+nginx-sample-nginx-6986d4c448-5pzx5            1/1     Running     0          3h
+nginx-sample-nginx-6986d4c448-89wbp            1/1     Running     0          3h2m
+nginx-sample-nginx-6986d4c448-8wcvn            1/1     Running     0          3h
+nginx-sample-nginx-6986d4c448-mxlcm            1/1     Running     0          3h
+</pre>
