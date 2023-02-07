@@ -4,6 +4,9 @@
 
 ### Initialize the ansible operator project
 ```
+su -
+mkdir -p /root/jegan
+cd /root/jegan
 operator-sdk init --plugins=ansible --domain=tektutor.org
 ```
 
@@ -15,17 +18,11 @@ Next: define a resource with:
 $ operator-sdk create api
 </pre>
 
-Further, you can also check the folder listing and cat the file PROJECT
-<pre>
-</pre>
-
 ## Creating an API
 ```
+cd /root/jegan
 operator-sdk create api --group training --version v1 --kind Nginx --generate-role 
 ```
-Expected output is
-<pre>
-</pre>
 
 ## Let's update the Ansible role
 
@@ -69,15 +66,6 @@ Append the below line in roles/nginx/defaults/main.yml
 size: 1
 ```
 
-## Let's run the operator on your local system as a Go program ( This is to perform developer test -hence you can ignore )
-```
-make install run
-```
-
-Expected output is
-<pre>
-</pre>
-
 ## You need to login to your redhat account to authorize downloading redhat container images
 ```
 docker login registry.redhat.io
@@ -106,20 +94,12 @@ You may get this kind of version conflict errors while building your operator im
 
 You need to edit the /home/jegan/projects/nginx-operator/requirements.yml and update the version to 0.4.0 as necessary.
 
-<pre>
-</pre>
-
 Once you update the requirements.yml with the tool version installed on your system, you can expect the build go thru.
 
 ## Build your operator image
 ```
 make docker-build IMG=tektutor/nginx-openshift-operator:1.0
 ```
-
-Expected ouptut is
-
-<pre>
-</pre>
 
 ## Login to your Docker Hub account
 ```
@@ -144,27 +124,15 @@ In my case I already created a tektutor/nginx-openshift-operator public reposito
 docker push tektutor/nginx-openshift-operator:1.0
 ```
 
-Expected output is
-<pre>
-</pre>
-
 ## Deploying our nginx-operator into the OpenShift cluster
 ```
 make deploy IMG=tektutor/nginx-openshift-operator:1.0
 ```
 
-Expected output is
-<pre>
-</pre>
-
 ## Check your deployment in the cluster
 ```
 oc get deploy -n nginx-operator-system
 ```
-
-Expected output is
-<pre>
-</pre>
 
 ## Lab - Now you can create our Nginx Custom Resource as shown below
 
