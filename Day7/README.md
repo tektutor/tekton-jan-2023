@@ -225,6 +225,20 @@ tektonpipelines.operator.tekton.dev                               2023-02-07T06:
 tektontriggers.operator.tekton.dev                                2023-02-07T06:20:52Z
 </pre>
 
+
+## Installing the Tekton Command Line Tool from OpenShift webconsole
+```
+1. Launch your OpenShift web console in Google chrome
+2. Once you have logged in, click on the '?' on the top right corner and click on Command line tools
+3. Download the tekton command line tool for linux x86_64
+4. Extract the file with the command tar xvf tkn-linux-amd64.tar.gz
+5. Move the tkn cli utility to /usr/local/bin as shown below
+su -
+mv /home/user1/Downloads/tkn /usr/local/bin
+```
+In the above command, you need to modify the user as per your user name in the linux machine.
+
+
 ## Lab - Creating your first Tekton Task
 
 A simple Tekton Task looks as below
