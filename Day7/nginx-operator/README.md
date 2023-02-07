@@ -199,3 +199,51 @@ oc get rs,po
 - the Output produced by one Task can be an input to the next Task in the pipeline
 - the directory could mount an emptyDir, PersistentVolume, ConfigMap, Secrets
 
+## Custom Resource added by Tekton
+```
+oc get crds | grep tekton
+```
+
+Expected output
+<pre>
+jegan@tektutor.org)$ oc get crds|grep tekton
+clustertasks.tekton.dev                                           2023-02-07T06:21:48Z
+openshiftpipelinesascodes.operator.tekton.dev                     2023-02-07T06:20:54Z
+pipelineresources.tekton.dev                                      2023-02-07T06:21:48Z
+pipelineruns.tekton.dev                                           2023-02-07T06:21:48Z
+pipelines.tekton.dev                                              2023-02-07T06:21:48Z
+resolutionrequests.resolution.tekton.dev                          2023-02-07T06:21:48Z
+runs.tekton.dev                                                   2023-02-07T06:21:48Z
+taskruns.tekton.dev                                               2023-02-07T06:21:48Z
+tasks.tekton.dev                                                  2023-02-07T06:21:48Z
+tektonaddons.operator.tekton.dev                                  2023-02-07T06:20:51Z
+tektonchains.operator.tekton.dev                                  2023-02-07T06:20:54Z
+tektonconfigs.operator.tekton.dev                                 2023-02-07T06:20:51Z
+tektonhubs.operator.tekton.dev                                    2023-02-07T06:20:54Z
+tektoninstallersets.operator.tekton.dev                           2023-02-07T06:20:51Z
+tektonpipelines.operator.tekton.dev                               2023-02-07T06:20:51Z
+tektontriggers.operator.tekton.dev                                2023-02-07T06:20:52Z
+</pre>
+
+## Lab - Creating your first Tekton Task
+```
+cd ~/tekton-jan-2023
+git pull
+cd Day7/tekton
+
+oc apply -f hello.yml 
+oc get tasks
+tkn task list
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc apply -f hello-task.yml 
+task.tekton.dev/hello created
+
+(jegan@tektutor.org)$ oc get tasks
+NAME    AGE
+hello   6s
+
+
+</pre>
