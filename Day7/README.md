@@ -145,10 +145,10 @@ cd /root/jegan
 oc project jegan
 ```
 
-Now, let's create a nginx.yml file with below content
+Now, let's create an nginx.yml file with below content
+
 <pre>
 Create an yaml file named nginx.yml with below content
-<pre>
 apiVersion: training.tektutor.org/v1
 kind: Nginx
 metadata:
@@ -225,6 +225,21 @@ tektonpipelines.operator.tekton.dev                               2023-02-07T06:
 tektontriggers.operator.tekton.dev                                2023-02-07T06:20:52Z
 </pre>
 
+
+## Installing the Tekton Command Line Tool from OpenShift webconsole
+```
+1. Launch your OpenShift web console in Google chrome
+2. Once you have logged in, click on the '?' on the top right corner and click on Command line tools
+3. Download the tekton command line tool for linux x86_64
+4. Extract the file with the command tar xvf tkn-linux-amd64.tar.gz
+5. Move the tkn cli utility to /usr/local/bin as shown below
+su -
+mv /home/user1/Downloads/tkn /usr/local/bin
+6. exit the root user login
+```
+In the above command, you need to modify the user as per your user name in the linux machine.
+
+
 ## Lab - Creating your first Tekton Task
 
 A simple Tekton Task looks as below
@@ -249,7 +264,7 @@ cd ~/tekton-jan-2023
 git pull
 cd Day7/tekton
 
-oc apply -f hello.yml 
+oc apply -f hello-task.yml 
 oc get tasks
 tkn task list
 
@@ -266,4 +281,46 @@ hello   6s
 
 (jegan@tektutor.org)$ tkn taskrun logs -f hello-run-g9fcb
 [echo] Hello World !
+</pre>
+
+
+## Lab - Tekton Task with multiple steps
+```
+cd ~/tekton-jan-2023
+git pull
+cd Day7/tekton
+
+oc apply -f task-with-multiple-steps.yml
+oc get tasks
+tkn task list
+tkn task start hello-task-with-multiple-steps
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc apply -f task-with-multiple-steps.yml 
+task.tekton.dev/hello-task-with-multiple-steps created
+(jegan@tektutor.org)$ oc get po
+NAME                                  READY   STATUS      RESTARTS   AGE
+hello-run-g9fcb-pod                   0/1     Completed   0          49m
+nginx-sample-nginx-6986d4c448-4m7hj   1/1     Running     0          161m
+nginx-sample-nginx-6986d4c448-5pzx5   1/1     Running     0          161m
+nginx-sample-nginx-6986d4c448-89wbp   1/1     Running     0          163m
+nginx-sample-nginx-6986d4c448-8wcvn   1/1     Running     0          161m
+nginx-sample-nginx-6986d4c448-mxlcm   1/1     Running     0          161m
+(jegan@tektutor.org)$ oc get tasks
+NAME                             AGE
+hello                            55m
+hello-task-with-multiple-steps   93s
+(jegan@tektutor.org)$ tkn task start hello-task-with-multiple-steps
+TaskRun started: hello-task-with-multiple-steps-run-qjcl2
+
+In order to track the TaskRun progress run:
+tkn taskrun logs hello-task-with-multiple-steps-run-qjcl2 -f -n jegan
+(jegan@tektutor.org)$ tkn taskrun logs hello-task-with-multiple-steps-run-qjcl2 -f -n jegan
+[step-1] Step 1 => Hello World !
+
+[step-2] Step 2 => Hello World !
+
+[step-3] Step 3 => Hello World !
 </pre>
