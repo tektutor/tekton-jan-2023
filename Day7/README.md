@@ -282,3 +282,45 @@ hello   6s
 (jegan@tektutor.org)$ tkn taskrun logs -f hello-run-g9fcb
 [echo] Hello World !
 </pre>
+
+
+## Lab - Tekton Task with multiple steps
+```
+cd ~/tekton-jan-2023
+git pull
+cd Day7/tekton
+
+oc apply -f task-with-multiple-steps.yml
+oc get tasks
+tkn task list
+tkn task start hello-task-with-multiple-steps
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc apply -f task-with-multiple-steps.yml 
+task.tekton.dev/hello-task-with-multiple-steps created
+(jegan@tektutor.org)$ oc get po
+NAME                                  READY   STATUS      RESTARTS   AGE
+hello-run-g9fcb-pod                   0/1     Completed   0          49m
+nginx-sample-nginx-6986d4c448-4m7hj   1/1     Running     0          161m
+nginx-sample-nginx-6986d4c448-5pzx5   1/1     Running     0          161m
+nginx-sample-nginx-6986d4c448-89wbp   1/1     Running     0          163m
+nginx-sample-nginx-6986d4c448-8wcvn   1/1     Running     0          161m
+nginx-sample-nginx-6986d4c448-mxlcm   1/1     Running     0          161m
+(jegan@tektutor.org)$ oc get tasks
+NAME                             AGE
+hello                            55m
+hello-task-with-multiple-steps   93s
+(jegan@tektutor.org)$ tkn task start hello-task-with-multiple-steps
+TaskRun started: hello-task-with-multiple-steps-run-qjcl2
+
+In order to track the TaskRun progress run:
+tkn taskrun logs hello-task-with-multiple-steps-run-qjcl2 -f -n jegan
+(jegan@tektutor.org)$ tkn taskrun logs hello-task-with-multiple-steps-run-qjcl2 -f -n jegan
+[step-1] Step 1 => Hello World !
+
+[step-2] Step 2 => Hello World !
+
+[step-3] Step 3 => Hello World !
+</pre>
