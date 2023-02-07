@@ -1,0 +1,6 @@
+apiVersion: training.tektutor.org/v1
+kind: Nginx
+metadata:
+  name: nginx-sample
+spec:
+  size: 5 

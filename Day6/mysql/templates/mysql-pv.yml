@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv # Append your name like mysql-pv-jegan
+  labels:
+    type: mysql
+    name: jegan #Replace with your name
+spec:
+  capacity:
+    storage: 500Mi
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: "192.168.1.108"
+    path: "/mnt/mysql" #Replace this folder with your username For example - /mnt/user1 

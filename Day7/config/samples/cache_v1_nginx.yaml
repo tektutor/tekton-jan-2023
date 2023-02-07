@@ -1,0 +1,6 @@
+apiVersion: tektutor.org/v1
+kind: Nginx
+metadata:
+  name: nginx
+spec:
+  size: 3
