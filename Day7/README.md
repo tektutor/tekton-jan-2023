@@ -185,12 +185,12 @@ oc get rs,po
 - PipelineRun provides the input parameters and configurations to Pipeline to run successfully
 
 ## What is a Tekton Task?
-- each Task creates a Pod
+- each Task when executed creates a Pod
 - each Task has one to many Steps
 - each Step will create a container within the Task Pod
 
 ## What is Tekton TaskRun?
-- each time a Task is executed, it creates an instance of TaskRun
+- each time a Task is executed, it creates an instance of TaskRun (ie. Pod)
 - TaskRun provides values for the input parameters, and also provides configuration info for the Task to run properly
 
 ## What is Tekton Workspace?
