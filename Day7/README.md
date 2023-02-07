@@ -145,10 +145,10 @@ cd /root/jegan
 oc project jegan
 ```
 
-Now, let's create a nginx.yml file with below content
+Now, let's create an nginx.yml file with below content
+
 <pre>
 Create an yaml file named nginx.yml with below content
-<pre>
 apiVersion: training.tektutor.org/v1
 kind: Nginx
 metadata:
