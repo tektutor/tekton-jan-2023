@@ -461,29 +461,7 @@ Append the below line in roles/nginx/defaults/main.yml
 size: 3
 ```
 
-Currently the file config/samples/cache_v1_nginx.yaml looks as below
-<pre>
-(jegan@tektutor.org)$ <b>cat config/samples/cache_v1_nginx.yaml</b>
-apiVersion: tektutor.org/v1
-kind: Nginx
-metadata:
-  name: nginx
-spec:
-  # TODO(user): Add fields here
-</pre>
-
-We need to edit as shown below
-<pre>
-(jegan@tektutor.org)$ cat config/samples/cache_v1_nginx.yaml
-apiVersion: tektutor.org/v1
-kind: Nginx
-metadata:
-  name: nginx
-spec:
-  size: 3
-</pre>
-
-## Let's run the operator on your local system as a Go program
+## Let's run the operator on your local system as a Go program ( This is to perform developer test -hence you can ignore )
 ```
 make install run
 ```
@@ -527,7 +505,7 @@ Once you update the requirements.yml with the tool version installed on your sys
 
 ## Build your operator image
 ```
-make docker-build IMG=tektutor/nginx-operator:1.0
+make docker-build IMG=tektutor/nginx-openshift-operator:1.0
 ```
 
 Expected ouptut is
@@ -555,7 +533,7 @@ Login Succeeded
 In my case I already created a tektutor/nginx-openshift-operator public repository in my Docker Hub account.
 
 ```
-docker push tektutor/nginx-operator:1.0
+docker push tektutor/nginx-openshift-operator:1.0
 ```
 
 Expected output is
@@ -564,7 +542,7 @@ Expected output is
 
 ## Deploying our nginx-operator into the OpenShift cluster
 ```
-make deploy IMG=tektutor/nginx-operator:1.0
+make deploy IMG=tektutor/nginx-openshift-operator:1.0
 ```
 
 Expected output is
@@ -579,3 +557,38 @@ oc get deploy -n nginx-operator-system
 Expected output is
 <pre>
 </pre>
+
+## Lab - Now you can create our Nginx Custom Resource as shown below
+
+Now you may create the nginx resource as shown below
+```
+su -
+mkdir -p /root/jegan
+cd /root/jegan
+
+oc project jegan
+```
+
+Now, let's create a nginx.yml file with below content
+<pre>
+Create an yaml file named nginx.yml with below content
+<pre>
+apiVersion: tektutor.org/v1
+kind: Nginx
+metadata:
+  name: nginx
+spec:
+  size: 3
+</pre>
+
+
+You may now create the nginx resource as shown below
+```
+oc apply -f nginx.yml
+```
+
+You can issue the below command to observe that our custom nginx-controller automatically create an nginx deploy with 3 pod instances
+```
+oc get deploy -w
+oc get rs,po
+```
