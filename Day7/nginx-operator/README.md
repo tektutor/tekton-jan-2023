@@ -169,7 +169,13 @@ oc get deploy -w
 oc get rs,po
 ```
 
+## What is 
+
 ## What is Tekton?
 - serverless CI/CD Platform
 - you can created CI/CD Pipeline with declarative code written in YAML
-- is a Kubernetes native CI/CF Framework, hence works in Kubernetes and OpenShift
+- is a Kubernetes native CI/CD Framework, hence works in Kubernetes and OpenShift
+- you may refer my Medium blog about Tekton here https://medium.com/tektutor/openshift-ci-cd-with-tekton-faa88ba45656
+
+## What is a Tekton Pipeline?
+- a collection of Tasks executed some in sequence and some in parallel
