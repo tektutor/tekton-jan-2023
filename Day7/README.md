@@ -235,6 +235,7 @@ tektontriggers.operator.tekton.dev                                2023-02-07T06:
 5. Move the tkn cli utility to /usr/local/bin as shown below
 su -
 mv /home/user1/Downloads/tkn /usr/local/bin
+6. exit the root user login
 ```
 In the above command, you need to modify the user as per your user name in the linux machine.
 
