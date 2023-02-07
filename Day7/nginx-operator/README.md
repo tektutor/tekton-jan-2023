@@ -226,6 +226,24 @@ tektontriggers.operator.tekton.dev                                2023-02-07T06:
 </pre>
 
 ## Lab - Creating your first Tekton Task
+
+A simple Tekton Task looks as below
+<pre>
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hello
+spec:
+  steps:
+  - name: echo
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - "Hello World !"
+</pre>
+
+You may now try creating a task as shown below
 ```
 cd ~/tekton-jan-2023
 git pull
@@ -234,6 +252,7 @@ cd Day7/tekton
 oc apply -f hello.yml 
 oc get tasks
 tkn task list
+
 ```
 
 Expected output
@@ -245,5 +264,6 @@ task.tekton.dev/hello created
 NAME    AGE
 hello   6s
 
-
+(jegan@tektutor.org)$ tkn taskrun logs -f hello-run-g9fcb
+[echo] Hello World !
 </pre>
