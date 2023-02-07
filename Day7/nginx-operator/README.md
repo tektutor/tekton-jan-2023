@@ -169,8 +169,6 @@ oc get deploy -w
 oc get rs,po
 ```
 
-## What is 
-
 ## What is Tekton?
 - serverless CI/CD Platform
 - you can created CI/CD Pipeline with declarative code written in YAML
@@ -179,3 +177,25 @@ oc get rs,po
 
 ## What is a Tekton Pipeline?
 - a collection of Tasks executed some in sequence and some in parallel
+- each Pipeline has one to many Tasks
+
+## What is Tekton PipelineRun?
+- represents a single execution of a Pipeline
+- each time a Pipeline is execute it creates an instance of PipelineRun
+- PipelineRun provides the input parameters and configurations to Pipeline to run successfully
+
+## What is a Tekton Task?
+- each Task creates a Pod
+- each Task has one to many Steps
+- each Step will create a container within the Task Pod
+
+## What is Tekton TaskRun?
+- each time a Task is executed, it creates an instance of TaskRun
+- TaskRun provides values for the input parameters, and also provides configuration info for the Task to run properly
+
+## What is Tekton Workspace?
+- a directory
+- the workspace directory will be used by Task to pick the input data and store the output data
+- the Output produced by one Task can be an input to the next Task in the pipeline
+- the directory could mount an emptyDir, PersistentVolume, ConfigMap, Secrets
+
