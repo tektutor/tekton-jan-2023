@@ -19,6 +19,11 @@ oc apply -f tekton-persistent-storage.yml
 oc create -f github-clone-taskrun.yml
 ```
 
+To check the output
+```
+tkn tr logs -f --last
+```
+
 ## ⛹️‍♀️ Lab - Build java project that uses maven as a build tool in a TaskRun picking the source code from persistent storage where the Previous Lab exercise cloned the source code
 
 You need to install the git-clone task from Tekton Hub
@@ -34,4 +39,9 @@ git pull
 
 cd Day8/tekton
 oc create -f maven-java-task.yml
+```
+
+To check the output
+```
+tkn tr logs -f --last
 ```
