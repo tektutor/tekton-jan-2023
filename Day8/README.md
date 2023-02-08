@@ -21,6 +21,7 @@ oc create -f github-clone-taskrun.yml
 
 To check the output
 ```
+tkn tr list
 tkn tr logs -f --last
 ```
 
@@ -43,5 +44,6 @@ oc create -f maven-java-task.yml
 
 To check the output
 ```
+tkn tr list
 tkn tr logs -f --last
 ```
