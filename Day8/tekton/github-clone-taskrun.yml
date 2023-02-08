@@ -18,4 +18,4 @@ spec:
   workspaces:
   - name: output
     persistentVolumeClaim:
-      claimName: tekton-pvc-jegan
+      claimName: tekton-pvc-jegan # Replace 'jegan' with your name
