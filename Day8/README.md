@@ -47,3 +47,11 @@ To check the output
 tkn tr list
 tkn tr logs -f --last
 ```
+
+Troubleshooting, permission denied error
+```
+su -
+chmod 777 -R /var/nfs_shares
+oc create -f maven-java-task.yml
+tkn tr logs -f --last
+```
