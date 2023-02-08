@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: github-clone-tr-
+spec:
+  taskRef:
+    name: git-clone 
+  params:
+  - name: url
+    value: https://github.com/tektutor/tekton-jan-2023.git
+
+  - name: revision
+    value: main
+  
+  - name: subdirectory
+    value: source
+
+  workspaces:
+  - name: output
+    persistentVolumeClaim:
+      claimName: tekton-pvc-jegan

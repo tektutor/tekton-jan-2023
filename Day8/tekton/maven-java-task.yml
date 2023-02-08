@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: maven-build-tr-
+spec:
+  taskRef:
+    name: maven
+
+  params:
+  - name: CONTEXT_DIR
+    value: source/Day8/tekton/hello 
+
+  - name: GOALS
+    value: 
+    - clean
+    - package
+
+  workspaces:
+  - name: source
+    persistentVolumeClaim:
+      claimName: tekton-pvc-jegan
+
+  - name: maven-settings
+    persistentVolumeClaim:
+      claimName: tekton-pvc-jegan
