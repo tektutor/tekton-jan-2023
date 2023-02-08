@@ -5,10 +5,12 @@ metadata:
 spec:
   taskRef:
     name: maven
-
   params:
   - name: CONTEXT_DIR
     value: source/Day8/tekton/hello 
+
+  - name: deleteExisting
+    value: false
 
   - name: GOALS
     value: 
@@ -21,5 +23,4 @@ spec:
       claimName: tekton-pvc-jegan
 
   - name: maven-settings
-    persistentVolumeClaim:
-      claimName: tekton-pvc-jegan
+    emptyDir: {}
