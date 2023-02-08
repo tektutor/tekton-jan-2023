@@ -1,6 +1,15 @@
 # Day 8
 
+
+
 ## ⛹️‍♂️ Lab - Creating a Tekton Task that will clone the source code from GitHub into a Persistent Storage (NFS)
+
+You need to install the git-clone task from Tekton Hub
+```
+tkn hub install task git-clone
+```
+
+Now you may refer the installed task in the below taskrun
 ```
 cd ~/tekton-jan-2023
 git pull
@@ -11,6 +20,13 @@ oc create -f github-clone-taskrun.yml
 ```
 
 ## ⛹️‍♀️ Lab - Build java project that uses maven as a build tool in a TaskRun picking the source code from persistent storage where the Previous Lab exercise cloned the source code
+
+You need to install the git-clone task from Tekton Hub
+```
+tkn hub install task maven
+```
+
+Now you may refer the installed task in the below taskrun
 
 ```
 cd ~/tekton-jan-2023
