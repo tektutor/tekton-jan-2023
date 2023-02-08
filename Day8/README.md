@@ -10,7 +10,7 @@ oc apply -f tekton-persistent-storage.yml
 oc create -f github-clone-taskrun.yml
 ```
 
-## ⛹️‍♀️ Lab - Build java project that uses maven as a build tool in a TaskRun that picks the source from persistent storage where the Previous Lab cloned the source code
+## ⛹️‍♀️ Lab - Build java project that uses maven as a build tool in a TaskRun picking the source code from persistent storage where the Previous Lab exercise cloned the source code
 
 ```
 cd ~/tekton-jan-2023
