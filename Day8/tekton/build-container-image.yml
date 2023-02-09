@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: kaniko-container-image
+spec:
+  taskRef:
+    name: build-container-image 
+  params:
+  - name: imageName 
+    value: tektutor/java-hello 
+  - name: pathToContext 
+    value: Day8/tekton
+  - name: pathToDockerfile 
+    value: .
+  workspaces:
+  - name: source
+    persistentVolumeClaim:
+      claimName: tekton-pvc-jegan 

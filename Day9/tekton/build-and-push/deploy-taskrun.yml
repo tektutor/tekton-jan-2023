@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: deploy-app-tr-
+spec:
+  taskRef:
+    name: deploy-app-into-openshift 
+
+  workspaces:
+  - name: source 
+    persistentVolumeClaim:
+      claimName: tekton-pvc-jegan # Replace 'jegan' with your name
