@@ -69,6 +69,18 @@ oc create -f pipelinerun.yml
 tkn pr logs -f --last
 ```
 
+### Troubleshooting
+In case, you are getting forbidden issues while deploying then try this
+```
+oc create role deployment --verb=create,delete,get,list,patch,update,watch --resource=deployment
+oc create role service --verb=create,delete,get,list,patch,update,watch --resource=service
+oc create role route --verb=create,delete,get,list,patch,update,watch --resource=route
+oc adm policy add-role-to-user deployment fsgroup-runasany -n jegan
+oc adm policy add-role-to-user service fsgroup-runasany
+oc adm policy add-role-to-user service fsgroup-runasany
+```
+
+
 ## Lab - Let's run another Java pipeline
 ```
 https://medium.com/tektutor/openshift-ci-cd-with-tekton-faa88ba45656
