@@ -77,7 +77,7 @@ oc create role service --verb=create,delete,get,list,patch,update,watch --resour
 oc create role route --verb=create,delete,get,list,patch,update,watch --resource=route
 oc adm policy add-role-to-user deployment fsgroup-runasany -n jegan
 oc adm policy add-role-to-user service fsgroup-runasany
-oc adm policy add-role-to-user service fsgroup-runasany
+oc adm policy add-role-to-user route fsgroup-runasany
 ```
 
 
