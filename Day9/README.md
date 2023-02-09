@@ -1,6 +1,6 @@
 # Day 9
 
-## Lab - Create your first Tekton pipeline
+## ⛹️‍♂️ Lab - Create your first Tekton pipeline
 ```
 cd ~/tekton-jan-2023
 git pull
@@ -15,7 +15,7 @@ tkn pipelinerun list
 tkn pipelinerun logs -f --last
 ```
 
-## Lab - Create your second Tekton pipeline
+## ⛹️‍♂️ Lab - Create your second Tekton pipeline
 ```
 cd ~/tekton-jan-2023
 git pull
@@ -31,7 +31,7 @@ tkn pipelinerun logs -f --last
 ```
 
 
-## Lab - CI/CD with Tekton (Build app binary from source code, build container image, push image to docker hub and deploy application into OpenShift )
+## ⛹️‍♂️ Lab - CI/CD with Tekton (Build app binary from source code, build container image, push image to docker hub and deploy application into OpenShift )
 
 Buildah utility requires root permission inside the Pod that runs on OpenShift, hence we need to create a service account with necessary permissions
 ```
