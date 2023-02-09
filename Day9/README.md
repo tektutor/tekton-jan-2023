@@ -68,3 +68,8 @@ oc apply -f pipeline.yml
 oc create -f pipelinerun.yml
 tkn pr logs -f --last
 ```
+
+## Lab - Let's run another Java pipeline
+```
+https://medium.com/tektutor/openshift-ci-cd-with-tekton-faa88ba45656
+```
