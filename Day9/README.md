@@ -35,5 +35,5 @@ oc apply -f build-and-push-task.yml
 oc apply -f deploy-task.yml
 oc apply -f pipeline.yml
 oc create -f pipelinerun.yml
-tkn tr logs -f --last
+tkn pr logs -f --last
 ```
