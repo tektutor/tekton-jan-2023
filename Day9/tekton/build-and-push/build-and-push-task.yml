@@ -27,6 +27,7 @@ spec:
       mountPath: /var/lib/containers
     securityContext:
       privileged: true
+
   - name: push
     image: quay.io/buildah/stable:v1.17.0
     workingDir: $(workspaces.source.path)

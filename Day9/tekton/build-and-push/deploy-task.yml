@@ -12,4 +12,4 @@ spec:
       args:
         - "create"
         - "-f"
-        - "/workspace/source/source/deploy.yml"
+        - "/workspace/source/deploy.yml"
