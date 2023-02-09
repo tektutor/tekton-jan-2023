@@ -20,7 +20,7 @@ spec:
   workspaces:
   - name: source
     persistentVolumeClaim:
-      claimName: tekton-pvc-jegan
+      claimName: tekton-pvc-jegan # Replace 'jegan' with your name
 
   - name: maven-settings
     emptyDir: {}
