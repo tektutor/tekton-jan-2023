@@ -107,4 +107,4 @@ Expected output
 ## OpenShift Case Study
 - Using Red Hat OpenShift Service Mesh
 - Using Gloo Mesh in Multi-cluster OpenShift 
-- Using ArgoCD
+- Using ArgoCD ( Not in agenda, based on request it is added )
