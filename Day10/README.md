@@ -103,3 +103,8 @@ Expected output
 (jegan@tektutor.org)$ <b>curl --insecure --location --request POST ${HOOK_URL} --header 'Content-Type: application/json' --data '{"name":"run-my-app","run-it":"yes-please"}'</b>
 {"eventListener":"tektutor-trigger-listener","namespace":"jegan","eventListenerUID":"778e9325-11b9-488a-81ef-e8b05866cc16","eventID":"ed729332-efb5-4e6b-95ef-565480db0f58"}
 </pre>
+
+## OpenShift Case Study
+- Using Red Hat OpenShift Service Mesh
+- Using Gloo Mesh in Multi-cluster OpenShift 
+- Using ArgoCD
