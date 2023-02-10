@@ -194,3 +194,7 @@ kubectl logs \
 $(kubectl get pods -n tutorial |grep recommendation|awk '{ print $1 }'|head -1) \
 -c recommendation -n tutorial
 ```
+## Case Study 3 - Using ArgoCD for Continuous Delivery
+
+
+
