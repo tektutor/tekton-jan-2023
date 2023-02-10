@@ -108,3 +108,89 @@ Expected output
 - Using Red Hat OpenShift Service Mesh
 - Using Gloo Mesh in Multi-cluster OpenShift 
 - Using ArgoCD ( Not in agenda, based on request it is added )
+
+## Case Study 1 - Using Red Hat OpenShift Service Mesh
+
+
+Installing Red Hat OpenShift Service Mesh, the below Operators has to be installed in OpenShift via Webconsole
+```
+1. OpenShift Elasticsearch Operator
+2. Red Hat OpenShift Distributed Tracing Platform (Jaeger)
+3. Kiali Operator
+4. Red Hat OpenShift Service Mesh
+```
+
+Demo
+```
+cd ~
+git clone https://github.com/redhat-developer-demos/istio-tutorial istio-tutorial
+cd istio-tutorial istio-tutorial
+```
+
+Create a project 'istio-system'
+
+From the OpenShift Installed Operators Menu, in the Provided API, click on Istio Service Mesh Control Plane.
+Navigate to Proxy > Networking > Traffic Control > Outbound > Policy and type 'REGISTRY_ONLY' and click on Create. Create ServiceMeshMemberRoll and type the below code
+```
+apiVersion: maistra.io/v1
+kind: ServiceMeshMemberRoll
+metadata:
+  name: default
+  namespace: istio-system
+spec:
+  members:
+    - tutorial
+```
+
+Check the pods
+```
+kubectl get pods -w -n istio-system
+```
+
+### Deploying Microservices
+
+Create the customer microservice
+```
+kubectl apply -f customer/kubernetes/Deployment.yml -n tutorial
+kubectl create -f customer/kubernetes/Service.yml -n tutorial
+kubectl get pods -w -n tutorial
+```
+
+Deploy the GateWay and VirtualService
+```
+kubectl create -f customer/kubernetes/Gateway.yml -n tutorial
+kubectl get all -l app=istio-ingressgateway -n istio-system
+```
+
+Validate Ingress
+```
+export GATEWAY_URL=$(kubectl get route istio-ingressgateway -n istio-system -o=jsonpath="{.spec.host}")
+
+curl $GATEWAY_URL/customer
+
+kubectl logs \
+$(kubectl get pods -n tutorial |grep customer|awk '{ print $1 }'|head -1) \
+-c customer -n tutorial
+```
+
+Deploy the Preference Service
+```
+kubectl apply -f preference/kubernetes/Deployment.yml -n tutorial
+kubectl create -f preference/kubernetes/Service.yml -n tutorial
+kubectl get pods -w -n tutorial
+curl $GATEWAY_URL/customer
+kubectl logs \
+$(kubectl get pods -n tutorial |grep preference|awk '{ print $1 }'|head -1) \
+-c preference -n tutorial
+```
+
+Deploy the Recommendation Service
+```
+kubectl apply -f recommendation/kubernetes/Deployment.yml -n tutorial
+kubectl create -f recommendation/kubernetes/Service.yml -n tutorial
+kubectl get pods -w -n tutorial
+curl $GATEWAY_URL/customer
+kubectl logs \
+$(kubectl get pods -n tutorial |grep recommendation|awk '{ print $1 }'|head -1) \
+-c recommendation -n tutorial
+```
