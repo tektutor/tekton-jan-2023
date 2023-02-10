@@ -110,7 +110,7 @@ Expected output
 - Using ArgoCD ( Not in agenda, based on request it is added )
 
 ## Case Study 1 - Using Red Hat OpenShift Service Mesh
-
+You may refer the step by step instructions in detail here https://redhat-scholars.github.io/istio-tutorial/istio-tutorial/1.9.x/index.html
 
 Installing Red Hat OpenShift Service Mesh, the below Operators has to be installed in OpenShift via Webconsole
 ```
